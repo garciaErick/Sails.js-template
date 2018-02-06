@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title><%= typeof title == 'undefined' ? 'New Sails App' : title %></title>
+
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <!--
+      Stylesheets and Preprocessors
+      ==============================
+
+      You can always bring in CSS files manually with `<link>` tags, or asynchronously
+      using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+      of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, stylesheets from your `assets/styles` folder are included
+      here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+      are supported. In production, your styles will be minified and concatenated into
+      a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your CSS files
+          + Import stylesheets from other directories
+          + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+  -->
+
+  <!--STYLES-->
+  <link rel="stylesheet" href="/assets/materialize-css/css/materialize.css">
+  <link rel="stylesheet" href="/assets/datatable/materialDatatable.css">
+  <link rel="stylesheet" href="/styles/lessImporter.css">
+  <link rel="stylesheet" href="/styles/sassImporter.css">
+  <!--STYLES END-->
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+    <img src="/img/logo.png" class="responsive-img" style="margin-top:10px"/>
+    <a href="/" class="brand-logo center">Sails.js Demo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/">Home</a></li>
+      <li><a class="waves-effect waves-light modal-trigger" href="/user">Users</a></li>
+      <li><a class="waves-effect waves-light modal-trigger" href="#logInModal">Log in</a></li>
+    </ul>
+  </div>
+</nav>
+<br/>
+
+<div id="logInModal" class="modal">
+  <form role="form" method="post" id="loginForm" name="loginForm"
+        onsubmit="userLogin('<?php echo base_url() ?>'); return false">
+    <div class="modal-content">
+      <h4 >Sign in to continue to the Member's Area</h4>
+      </a>
+      <br>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
+        <input id="InputEmail" type="email" class="validate">
+        <label for="InputEmail" data-error="Wrong email format">Email Address</label>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">vpn_key</i>
+        <input id="InputPassword" type="password" class="validate">
+        <label for="InputPassword">Password</label>
+      </div>
+    </div>
+
+
+    <div class="modal-footer" id="modalFooter" style="background-color: #eeeeee;">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+    </div>
+  </form>
+</div>
+
+<%- body %>
+
+<!--
+    Client-side Templates
+    ========================
+
+    HTML templates are important prerequisites of modern, rich client applications.
+    To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+    that you load these templates client-side.
+
+    By default, your Gruntfile is configured to automatically load and precompile
+    client-side JST templates in your `assets/templates` folder, then
+    include them here automatically (between TEMPLATES and TEMPLATES END).
+
+    To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+    For example, here are a few things you could do:
+
+        + Import templates from other directories
+        + Use a different template engine (handlebars, jade, dust, etc.)
+        + Internationalize your client-side templates using a server-side
+          stringfile before they're served.
+-->
+
+<!--TEMPLATES-->
+
+<!--TEMPLATES END-->
+
+
+<!--
+
+  Client-side Javascript
+  ========================
+
+  You can always bring in JS files manually with `script` tags, or asynchronously
+  on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+  take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+  By default, files in your `assets/js` folder are included here
+  automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+  CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+  and concatenated into a single file.
+
+  To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+  For example, here are a few things you could do:
+
+      + Change the order of your scripts
+      + Import scripts from other directories
+      + Use a different preprocessor, like TypeScript
+
+-->
+<footer class="page-footer" id="footer" >
+  <div class="container">
+    <div class="row">
+      <div class="col s4">
+        <h5>Contact Us</h5>
+        <ul>
+          <li><i class="small material-icons">perm_identity</i> Natalia Villanueva Rosales</li>
+          <li><i class="small material-icons">work</i> University of Texas at El Paso</li>
+          <li><i class="small material-icons">location_on</i> 3.0508 Chemistry and Computer Science Building</li>
+          <li><i class="small material-icons">phone</i> +1-915-747-8643</li>
+          <li><i class="small material-icons">email</i> nvillanuevarosales@utep.edu</li>
+        </ul>
+      </div>
+      <div class="col s4">
+        <h5>Useful Links</h5>
+        <ul>
+          <li>
+            <a href="http://dbowlizer.cybershare.utep.edu/#" class="grey-text text-lighten-2">
+              <i class="small material-icons">done</i>Terms of Use
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col s4">
+        <h5>Acknowledgements</h5>
+        <p>
+          This work used resources from Cyber-ShARE Center of Excellence supported by NSF grant HRD-1242122
+        </p>
+        <div class="row">
+          <div class="col s4">
+            <img src="/images/nsf-logo.png" class="responsive-img"/>
+          </div>
+          <div class="col s4">
+            <img src="/images/ilink-logo.png" class="responsive-img"/>
+          </div>
+          <div class="col s4">
+            <img src="/images/cybershare-logo.png" class="responsive-img"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container" style="font-size: 12px;">
+      Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s)
+      and do not necessarily reflect the views of the National Science Foundation.
+    </div>
+  </div>
+</footer>
+<!--SCRIPTS-->
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/dependencies/angular/angular.min.js"></script>
+<script src="/js/dependencies/jquery/jquery.min.js"></script>
+<script src="/js/dependencies/jquery/jquery.validate.js"></script>
+<script src="/assets/materialize-css/js/materialize.min.js"></script>
+<script src="/assets/datatable/datatables.min.js"></script>
+<script src="/assets/datatable/materialDatatable.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/validate/userValidation.js"></script>
+<!--SCRIPTS END-->
+</body>
+</html>
